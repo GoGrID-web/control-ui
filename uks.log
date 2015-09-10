@@ -1,0 +1,47 @@
+2015-09-06 12:26:36,287 | INFO | >> Hello World!
+2015-09-06 12:26:36,326 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 12:26:36,339 | DEBUG | Locking door: Init
+2015-09-06 12:27:16,680 | DEBUG | Card added
+2015-09-06 12:27:17,185 | WARNING | Unknow person: XA0010001 Kati Karu 
+2015-09-06 12:27:25,600 | DEBUG | Card removed
+2015-09-06 12:27:25,602 | DEBUG | Locking door: Card Removed
+2015-09-06 12:27:33,666 | DEBUG | Card added
+2015-09-06 12:27:34,202 | WARNING | Unknow person: XA0010001 Kati Karu 
+2015-09-06 12:27:40,326 | DEBUG | Card removed
+2015-09-06 12:27:40,329 | DEBUG | Locking door: Card Removed
+2015-09-06 12:29:36,269 | INFO | << Closing
+2015-09-06 13:15:05,319 | INFO | >> Hello World!
+2015-09-06 13:15:05,382 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 13:15:05,385 | DEBUG | Locking door: Init
+2015-09-06 13:17:13,328 | INFO | << Closing
+2015-09-06 15:59:46,078 | INFO | >> Hello World!
+2015-09-06 15:59:46,121 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 15:59:46,134 | DEBUG | Locking door: Init
+2015-09-06 16:41:29,248 | INFO | << Closing
+2015-09-06 16:41:55,178 | INFO | >> Hello World!
+2015-09-06 16:41:55,241 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 16:41:55,244 | DEBUG | Locking door: Init
+2015-09-06 16:41:52,630 | INFO | >> Hello World!
+2015-09-06 16:41:52,684 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 16:41:52,687 | DEBUG | Locking door: Init
+2015-09-06 17:10:59,847 | INFO | << Closing
+2015-09-06 17:11:27,379 | INFO | >> Hello World!
+2015-09-06 17:11:27,492 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 17:11:27,495 | DEBUG | Locking door: Init
+2015-09-06 17:17:32,114 | INFO | >> Hello World!
+2015-09-06 17:17:32,204 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-06 17:17:32,243 | DEBUG | Locking door: Init
+2015-09-06 17:46:33,692 | INFO | << Closing
+2015-09-07 22:25:14,376 | INFO | >> Hello World!
+2015-09-07 22:25:19,302 | INFO | << Closing
+2015-09-09 12:18:11,908 | INFO | >> Hello World!
+2015-09-09 12:18:11,959 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-09 12:18:11,962 | DEBUG | Locking door: Init
+2015-09-09 12:20:34,484 | INFO | << Closing
+2015-09-09 13:16:34,959 | INFO | >> Hello World!
+2015-09-09 13:16:35,162 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-09 13:16:35,205 | DEBUG | Locking door: Init
+2015-09-10 07:17:35,369 | INFO | >> Hello World!
+2015-09-10 07:17:35,507 | DEBUG | Door info: (1, u'uks1', u'test1')
+2015-09-10 07:17:35,536 | DEBUG | Locking door: Init
+2015-09-10 18:09:53,843 | INFO | << Closing

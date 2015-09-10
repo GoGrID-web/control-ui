@@ -1,0 +1,10 @@
+<div>
+  <table border="1"><tbody>
+  <tr><th>Time</th><th>Level</th><th>Message</th></tr>
+  {% for entry in  entries %}
+	    {{ entry|safe }}
+  {% endfor %}
+  </tbody>
+  </table>
+</div>
+
