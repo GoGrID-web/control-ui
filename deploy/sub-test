@@ -1,0 +1,61 @@
+ServerName valdur55.dynu.com
+SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
+
+<VirtualHost *:80>
+    ServerName valdur55.dynu.com
+    DocumentRoot /var/www/d1
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel info
+
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+<VirtualHost *:80>
+
+    ServerName django.valdur55.dynu.com
+#    ServerAlias example.com
+    ServerAdmin webmaster@example.com
+
+    DocumentRoot /var/www/public/control-ui
+
+    #Alias /robots.txt /var/www/public/control-ui/robots.txt
+    #Alias /favicon.ico /var/www/public/control-ui/favicon.ico
+
+    Alias /static/ /var/www/public/control-ui/static/
+
+    <Directory /var/www/public/control-ui>
+    Order allow,deny
+    Allow from all
+    </Directory>
+
+    WSGIDaemonProcess django processes=2 threads=2 display-name=%{GROUP}
+    WSGIProcessGroup  django
+
+    WSGIScriptAlias / /var/www/public/control-ui/wsgi.py
+
+    #<Directory /usr/local/www/wsgi-scripts>
+    #Order allow,deny
+    #Allow from all
+    #</Directory>
+    <location "/static">
+        setHandler None
+    </Location>
+    <Files wsgi.py>
+        Allow from all
+    </Files>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.django.log
+    LogLevel info
+
+    CustomLog ${APACHE_LOG_DIR}/access.django.log combined
+</VirtualHost>
+
+
+    <LocationMatch "/(phpmyadmin)">
+        Deny from all
+        Allow from env=IS_EE
+        Allow from 127.0.0.1
+        Allow from 192.168
+    </LocationMatch>
