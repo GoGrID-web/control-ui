@@ -4,12 +4,13 @@ from django.template import RequestContext, loader
 
 from .models import Instance
 
+import os
 
 
 def index(request):
     entries=[]
     try:
-        f = open("./uks.log")
+        f = open(os.path.dirname(os.path.abspath(__file__))+"/uks.log")
         entr = [l.split("|") for l in f]
         for e in entr:
             entry="<tr>"
@@ -17,8 +18,8 @@ def index(request):
                 entry+="<td>"+e[i]+"</td>"
             entry+="</tr>"
             entries.append(entry)
-    except Exception:
-        pass
+    except Exception,e:
+        entries.append(e)
     template = loader.get_template('doorlog/index.html')
     context = RequestContext(request, {
         'entries': entries,
