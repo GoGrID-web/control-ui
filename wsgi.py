@@ -18,5 +18,3 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'web.settings'
 #os.environ["DJANGO_SETTINGS_MODULE"] = "web.settings"
 
 application = get_wsgi_application()
-
-
