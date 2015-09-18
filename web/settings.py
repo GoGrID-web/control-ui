@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
+from db_settings import *
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -76,18 +76,7 @@ WSGI_APPLICATION = 'web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'grid-web',
-        'USER': 'grid-web',
-        'PASSWORD': 'teretere',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    },
-
-}
-
+#DATABASE = database-settings
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
