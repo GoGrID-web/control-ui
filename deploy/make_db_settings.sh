@@ -2,10 +2,10 @@
 
 
 db_name="grid-web"
-db_user="grid-web"
+db_user=$db_name
 db_pw="teretere"
 
-cat > db_settings.py << EOF
+cat > local_settings.py << EOF
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -17,5 +17,8 @@ DATABASES = {
     },
 
 }
+
+
+DEBUG = False
 
 EOF
