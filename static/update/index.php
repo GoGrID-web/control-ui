@@ -12,7 +12,7 @@
         'whoami',
         'git checkout .',
         'git pull',
-        'touch ../../wsgi.py
+        'touch ../../wsgi.py',
         //'git status',
        // 'git submodule sync',
         //'git submodule update',
