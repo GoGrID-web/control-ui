@@ -10,11 +10,13 @@
     $commands = array(
         'echo $PWD',
         'whoami',
+        'git checkout .',
         'git pull',
-        'git status',
-        'git submodule sync',
-        'git submodule update',
-        'git submodule status',
+        'touch ../../wsgi.py
+        //'git status',
+       // 'git submodule sync',
+        //'git submodule update',
+       // 'git submodule status',
     );
     // Run the commands for output
     $output = '';
