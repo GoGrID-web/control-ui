@@ -12,6 +12,9 @@
         'whoami',
         'git checkout .',
         'git pull',
+//#./manage.py migrate
+//./manage.py loaddata db.json
+
         'touch ../../wsgi.py',
         //'git status',
        // 'git submodule sync',
