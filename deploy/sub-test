@@ -1,3 +1,4 @@
+cat > main << EOF
 ServerName valdur55.dynu.com
 SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
 
@@ -12,20 +13,25 @@ SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
 
 </VirtualHost>
 
+EOF
+
+project-folder=$(pwd)
+
+cat > stest << EOF
 <VirtualHost *:80>
 
-    ServerName django.valdur55.dynu.com
+    ServerName stes.valdur55.dynu.com
 #    ServerAlias example.com
     ServerAdmin webmaster@example.com
 
-    DocumentRoot /var/www/public/control-ui
+    DocumentRoot $project-folder
 
-    #Alias /robots.txt /var/www/public/control-ui/robots.txt
-    #Alias /favicon.ico /var/www/public/control-ui/favicon.ico
+    #Alias /robots.txt $project-folder/robots.txt
+    #Alias /favicon.ico $project-folder/favicon.ico
 
-    Alias /static/ /var/www/public/control-ui/static/
+    Alias /static/ $project-folder/static/
 
-    <Directory /var/www/public/control-ui>
+    <Directory $project-folder>
     Order allow,deny
     Allow from all
     </Directory>
@@ -33,7 +39,7 @@ SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
     WSGIDaemonProcess django processes=2 threads=2 display-name=%{GROUP}
     WSGIProcessGroup  django
 
-    WSGIScriptAlias / /var/www/public/control-ui/wsgi.py
+    WSGIScriptAlias / $project-folder/wsgi.py
 
     #<Directory /usr/local/www/wsgi-scripts>
     #Order allow,deny
@@ -48,7 +54,7 @@ SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
 
     ErrorLog ${APACHE_LOG_DIR}/error.django.log
     LogLevel info
-
+i
     CustomLog ${APACHE_LOG_DIR}/access.django.log combined
 </VirtualHost>
 
@@ -59,3 +65,5 @@ SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
         Allow from 127.0.0.1
         Allow from 192.168
     </LocationMatch>
+
+EOF
