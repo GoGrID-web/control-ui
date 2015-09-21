@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-db_name="grid-web"
-db_user=$db_name
+db_name="grid_stest"
+db_user="gid"
 db_pw="teretere"
 
 cat > local_settings.py << EOF
@@ -19,6 +19,6 @@ DATABASES = {
 }
 
 
-DEBUG = False
+DEBUG = True 
 
 EOF

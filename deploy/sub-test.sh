@@ -1,10 +1,15 @@
-cat > main << EOF
+#!/bin/bash
+
+APACHE_LOG_DIR="/var/log/apache2"
+APACHE_CONF_DIR="/etc/apache2/sites-available"
+
+cat > $APACHE_CONF_DIR/main << EOF
 ServerName valdur55.dynu.com
 SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
 
 <VirtualHost *:80>
     ServerName valdur55.dynu.com
-    DocumentRoot /var/www/d1
+    DocumentRoot /var/www
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     LogLevel info
@@ -15,31 +20,30 @@ SetEnvIf GEOIP_COUNTRY_CODE EE IS_EE
 
 EOF
 
-project-folder=$(pwd)
+pf="$(pwd)"
+site_name="stest"
 
-cat > stest << EOF
+cat > $APACHE_CONF_DIR/$site_name << EOF
 <VirtualHost *:80>
 
-    ServerName stes.valdur55.dynu.com
+    ServerName $site_name.valdur55.dynu.com
 #    ServerAlias example.com
     ServerAdmin webmaster@example.com
 
-    DocumentRoot $project-folder
+    #Alias /robots.txt $pf/robots.txt
+    #Alias /favicon.ico $pf/favicon.ico
 
-    #Alias /robots.txt $project-folder/robots.txt
-    #Alias /favicon.ico $project-folder/favicon.ico
+    Alias /static/ $pf/static/
 
-    Alias /static/ $project-folder/static/
-
-    <Directory $project-folder>
+    <Directory $pf>
     Order allow,deny
     Allow from all
     </Directory>
 
-    WSGIDaemonProcess django processes=2 threads=2 display-name=%{GROUP}
-    WSGIProcessGroup  django
+    WSGIDaemonProcess $site_name processes=2 threads=2 display-name=%{GROUP}
+    WSGIProcessGroup  $site_name
 
-    WSGIScriptAlias / $project-folder/wsgi.py
+    WSGIScriptAlias / $pf/wsgi.py
 
     #<Directory /usr/local/www/wsgi-scripts>
     #Order allow,deny
@@ -52,10 +56,9 @@ cat > stest << EOF
         Allow from all
     </Files>
 
-    ErrorLog ${APACHE_LOG_DIR}/error.django.log
+    ErrorLog ${APACHE_LOG_DIR}/error.$site_name.log
     LogLevel info
-i
-    CustomLog ${APACHE_LOG_DIR}/access.django.log combined
+    CustomLog ${APACHE_LOG_DIR}/access.$site_name.log combined
 </VirtualHost>
 
 
@@ -67,3 +70,6 @@ i
     </LocationMatch>
 
 EOF
+a2dissite default
+a2ensite main $site_name
+service apache2 restart
